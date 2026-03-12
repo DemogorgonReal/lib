@@ -2795,7 +2795,7 @@ local Library do
                 IsOpen = false,
                 Options = { }
             }
-	    function Dropdown:UpdateItems(newItems, newDefault)
+    function Dropdown:UpdateItems(newItems, newDefault)
         for _, option in pairs(self.Options) do
             if option.Button and option.Button.Instance then
                 pcall(function()
@@ -2815,6 +2815,8 @@ local Library do
             self:Set(newDefault)
         elseif #newItems > 0 then
             self:Set(newItems[1])
+        else
+            self:Set("--")
         end
         
         if self.Items and self.Items["Value"] then
@@ -2824,8 +2826,6 @@ local Library do
                 self.Items["Value"].Instance.Text = self.Value or "--"
             end
         end
-        
-        self.IsOpen = false
     end
             local Items = { } do
                 Items["Dropdown"] = Instances:Create("Frame", {
