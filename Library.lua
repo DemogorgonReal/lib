@@ -3452,7 +3452,9 @@ local Library do
             Library.SetFlags[Dropdown.Flag] = function(Value)
                 Dropdown:Set(Value)
             end
-
+											
+			Dropdown.Items = Items
+											
             return Dropdown, Items
         end
 
